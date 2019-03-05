@@ -57,9 +57,9 @@ where state <> "MD" or state is null;
 # 7. How many contributions for Larry Hogan came from outside of Maryland, and how many came from Maryland?  How many contributions for Ben Jealous came from outside of Maryland and how many came from Maryland?  Write four queries in total, each of which should use LIKE and wildcards to find contributions to Jealous or Hogan.  Then, using Excel or a calculator, calculate the percentage of each candidate's contributions that came from out of state.
 #Larry Hogan - inside MD: 34,012 outside MD: 1584 or 4.45 percent
 #Ben Jealous - inside MD: 3673 outside MD: 15,940 or 81.27 percent
-SELECT * FROM exercises.md_gov_race
-where receiving_committee = "Hogan Larry for Governor"
-and state <> "MD" or state is null;
+SELECT * 
+FROM exercises.md_gov_race
+where receiving_committee = "Hogan Larry for Governor" and (state <> "MD" or state is null);
 
 SELECT * FROM exercises.md_gov_race
 where state = "MD"
