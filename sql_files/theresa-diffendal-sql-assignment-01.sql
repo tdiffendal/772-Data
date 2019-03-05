@@ -46,20 +46,20 @@ where contributor_type = "Individual"
 order by contribution_amount desc;
 
 # 6. How many contributions are from Maryland?  How many contributions are from outside of Maryland, including other U.S. states and terrorities, foreign countries or contributions with no state listed?
-#From Maryland: 37,685 Not from Maryland: 17,524
+#From Maryland: 37,685 Not from Maryland: 17,642
 SELECT * FROM exercises.md_gov_race
 where state = "MD"
 order by contribution_amount desc;
 
 SELECT * FROM exercises.md_gov_race
-where state <> "MD";
+where state <> "MD" or state is null;
 
 # 7. How many contributions for Larry Hogan came from outside of Maryland, and how many came from Maryland?  How many contributions for Ben Jealous came from outside of Maryland and how many came from Maryland?  Write four queries in total, each of which should use LIKE and wildcards to find contributions to Jealous or Hogan.  Then, using Excel or a calculator, calculate the percentage of each candidate's contributions that came from out of state.
 #Larry Hogan - inside MD: 34,012 outside MD: 1584 or 4.45 percent
 #Ben Jealous - inside MD: 3673 outside MD: 15,940 or 81.27 percent
 SELECT * FROM exercises.md_gov_race
-where state <> "MD"
-and receiving_committee = "Hogan Larry for Governor";
+where receiving_committee = "Hogan Larry for Governor"
+and state <> "MD" or state is null;
 
 SELECT * FROM exercises.md_gov_race
 where state = "MD"
@@ -70,8 +70,8 @@ where state = "MD"
 and receiving_committee LIKE "Jealous Ben%";
 
 SELECT * FROM exercises.md_gov_race
-where state <> "MD"
-and receiving_committee LIKE "Jealous Ben%";
+WHERE state <> "MD" OR state IS NULL
+AND receiving_committee LIKE "Jealous Ben%";
 
 # 8 The actress Jada Pinkett Smith gave money to one of the candidates.  List the candidate she gave to, her address, how much she gave, what she listed as her employer and the date.  Then list some of the clues in the data that tell you that the person described in the database as "Jada Pinkett Smith" is actually the actress and not just some random person with the same name, and how you would verify your hunch with web research.
 # Gave $3,000 to Ben Jealous on 2017-09-228, address 1880 Century Park E Los Angeles CA 90067, employer name is Overbrook
