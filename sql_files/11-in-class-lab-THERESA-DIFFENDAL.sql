@@ -95,3 +95,40 @@ Group By receiving_committee, Contribution_Year
 Order by Average_Contribution desc;
 
 #make four queries with select, some summaries, order by, group by one or more fields, where with %
+
+#See what type of contributors both gave the most and had the highest average contribution
+#Self Candidate had highest average but only 1 record, anonymous had lowest average and 2 records
+Select contributor_type,
+avg(contribution_amount) as Average_Contribution,
+sum(contribution_amount) as Total_Contribution,
+min(contribution_amount) as Smallest_Contribution,
+max(contribution_amount) as Largest_Contribution,
+count(*) as Total_Records
+from exercises.md_gov_race
+Group By contributor_type
+Order by Average_Contribution desc;
+
+#Want to see how individual contributions differed dpending on zip code
+#21401 had the most donations with 864, 11 zip codes had average contribution of $6000 but only one record
+Select zip_code,
+avg(contribution_amount) as Average_Contribution,
+sum(contribution_amount) as Total_Contribution,
+min(contribution_amount) as Smallest_Contribution,
+max(contribution_amount) as Largest_Contribution,
+count(*) as Total_Records
+from exercises.md_gov_race
+Where contributor_type like "%individual%"
+Group By zip_code
+Order by Average_Contribution desc;
+
+Select receiving_committee,
+name(employer_name) as Employer,
+avg(contribution_amount) as Average_Contribution,
+sum(contribution_amount) as Total_Contribution,
+min(contribution_amount) as Smallest_Contribution,
+max(contribution_amount) as Largest_Contribution,
+count(*) as Total_Records
+from exercises.md_gov_race
+Where employer_name like "%university%"
+Group By receiving_committee, employer_name
+Order by Average_Contribution desc;
