@@ -121,8 +121,8 @@ Where contributor_type like "%individual%"
 Group By zip_code
 Order by Average_Contribution desc;
 
-Select receiving_committee,
-name(employer_name) as Employer,
+#Which schools (or employees of schools) sent how much money to which candidates?
+Select receiving_committee, employer_name,
 avg(contribution_amount) as Average_Contribution,
 sum(contribution_amount) as Total_Contribution,
 min(contribution_amount) as Smallest_Contribution,
@@ -131,4 +131,16 @@ count(*) as Total_Records
 from exercises.md_gov_race
 Where employer_name like "%university%"
 Group By receiving_committee, employer_name
+Order by Average_Contribution desc;
+
+#Was curious how businesses/companies donated, funnily enough only 14 of 605 were to Jealous
+Select receiving_committee, contributor_name,
+avg(contribution_amount) as Average_Contribution,
+sum(contribution_amount) as Total_Contribution,
+min(contribution_amount) as Smallest_Contribution,
+max(contribution_amount) as Largest_Contribution,
+count(*) as Total_Records
+from exercises.md_gov_race
+Where contributor_name like "%LLC%" or "%Inc%" or "%L.L.C.%" or "%company%"
+Group By contributor_name, receiving_committee
 Order by Average_Contribution desc;
