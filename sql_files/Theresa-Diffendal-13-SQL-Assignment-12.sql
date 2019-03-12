@@ -8,11 +8,34 @@
 
 SET SQL_MODE='only_full_group_by';
 
+Select * from bard.accidents;
+Select * from bard.deaths;
+
 # 1. Write a query to return a table that lists one record per death where alcohol or drug use was listed as a cause of the accident. How many such deaths were there?
+#38 deaths
+Select a.bardid, a.AccidentCause1, a.AccidentCause2, a.AccidentCause3
+From bard.accidents a Join bard.deaths d on a.bardid = d.bardid
+Where a.AccidentCause1 IN ("Alcohol Use", "Drug Use")
+or a.AccidentCause2 IN ("Alcohol Use", "Drug Use")
+or a.AccidentCause3 IN ("Alcohol Use", "Drug Use")
+Group by a.bardid, a.AccidentCause1, a.AccidentCause2, a.AccidentCause3;
 
 # 2. What day of the week has the lowest average age of people killed in accidents?
+#Sunday, average deceased age 42
+Select a.DayofWeek, avg(d.DeceasedAge)
+From bard.accidents a Join bard.deaths d on a.bardid = d.bardid
+Group by a.DayofWeek
+Order by avg(d.DeceasedAge) asc;
 
 # 3: What percentage of people killed on the Potomac River were wearing life jackets?
+#66%, or 2/3
+Select a.bardid, a.NameOfBodyOfWater, d.DeceasedPFDWorn
+From bard.accidents a Join bard.deaths d on a.bardid = d.bardid
+Where a.NameOfBodyOfWater = "Potomac River"
+Group by a.bardid, a.NameOfBodyOfWater, d.DeceasedPFDWorn;
+
+select * from bard.accidents
+Where NameOfBodyOfWater = "Potomac River";
 
 # 4: You're writing a story about the role alcohol plays in boating accidents and are looking for a detail for a story. A Coast Guard source tells you he remembered an accident that caused thousands of dollars in damage after the occupants downed more than a dozen small tubs of beer (an average one of these containers holds about 6 bottles of beer) at a bar before hitting the water some time in the last decade.  You try to find it in the data. How many of these tubs did they pay for?
 

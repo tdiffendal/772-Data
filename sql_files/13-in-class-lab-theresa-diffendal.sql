@@ -23,7 +23,7 @@ from bard.deaths
 where bardid = "MD-2016-0161";
 
 Select *
-from bard.accidents;
+from bard.accidents
 where bardid = "MD-2016-0161";
 
 #intro to join statements
