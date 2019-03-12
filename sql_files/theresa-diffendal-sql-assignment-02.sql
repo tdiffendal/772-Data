@@ -61,16 +61,15 @@ Order by wound asc;
 
 # 3. Write a query that shows all records for self-inflicted accidents by shooters who are 50 years old or older, ordered by shooter age from oldest to youngest.  How many are there?
 #9 incidents across 7 ages, from 50-66
-Select TYPE, SAGE,
-count(type) as Number_Incidents
+Select SAGE, count(type) as Number_Incidents
 from exercises.deer
 where type = "si"
 AND sage >= "50"
-Group by type, sage
+Group by sage
 Order by SAGE desc;
 
 # 4. Write a query that allows you to easily determine the oldest victim in Jackson County? Describe the incident in as much detail as possible from the records.
-#On Nov. 11, 1987 at 3 p.m., an 18 year old woman with 1 year of experience and no hunting safety course experiecnce fired a 20 gauge shotgun that hit a 62 year old man, who was in the shooter's party and standing out of sight, in the thigh, leaving a minor wound. It was a cloudy, 34 degree day and the victim was standing over 1000 feet from the shooter.
+#On Nov. 11, 1987 at 3 p.m., an 18 year old woman with 1 year of experience and no hunting safety course experiecnce fired a 20 gauge shotgun that hit a 62 year old man, who was in the shooter's party, in the thigh, leaving a minor wound. It was a cloudy, 34 degree day and the victim was standing over 1000 feet from and standing out of sight of the shooter.
 Select * from exercises.deer
 Where county = "Jackson"
 Order by VAGE desc;
