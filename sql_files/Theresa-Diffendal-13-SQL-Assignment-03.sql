@@ -15,10 +15,18 @@ Select * from bard.deaths;
 #38 deaths
 Select a.bardid, a.AccidentCause1, a.AccidentCause2, a.AccidentCause3
 From bard.accidents a Join bard.deaths d on a.bardid = d.bardid
-Where a.AccidentCause1 IN ("Alcohol Use", "Drug Use")
+Where (a.AccidentCause1 IN ("Alcohol Use", "Drug Use")
 or a.AccidentCause2 IN ("Alcohol Use", "Drug Use")
-or a.AccidentCause3 IN ("Alcohol Use", "Drug Use")
+or a.AccidentCause3 IN ("Alcohol Use", "Drug Use"))
 Group by a.bardid, a.AccidentCause1, a.AccidentCause2, a.AccidentCause3;
+
+select AccidentCause1, AccidentCause2, AccidentCause3, count(*)
+from bard.accidents
+Where (AccidentCause1 IN ("Alcohol Use", "Drug Use")
+or AccidentCause2 IN ("Alcohol Use", "Drug Use")
+or AccidentCause3 IN ("Alcohol Use", "Drug Use"))
+and numberdeaths > 0
+group by AccidentCause1, AccidentCause2, AccidentCause3;
 
 # 2. What day of the week has the lowest average age of people killed in accidents?
 #Sunday, average deceased age 42
@@ -29,39 +37,42 @@ Order by avg(d.DeceasedAge) asc;
 
 # 3: What percentage of people killed on the Potomac River were wearing life jackets?
 #66%, or 2/3
-Select a.bardid, a.NameOfBodyOfWater, d.DeceasedPFDWorn
+Select a.NameOfBodyOfWater, d.DeceasedPFDWorn
 From bard.accidents a Join bard.deaths d on a.bardid = d.bardid
-Where a.NameOfBodyOfWater = "Potomac River"
-Group by a.bardid, a.NameOfBodyOfWater, d.DeceasedPFDWorn;
+Where a.NameOfBodyOfWater like "%Pot%"
+Group by a.NameOfBodyOfWater, d.DeceasedPFDWorn;
 
-#Just to check and see how many records there were, 3
-select DeceasedPFDWorn 
+#Actual correct code: 12/22 instances a life jacket was worn
+select DeceasedPFDWorn, count(*) 
 From bard.accidents a Join bard.deaths d on a.bardid = d.bardid
-Where NameOfBodyOfWater = "Potomac River";
+Where a.NameOfBodyOfWater like "%Pot%"
+group by d.DeceasedPFDWorn;
 
 # 4: You're writing a story about the role alcohol plays in boating accidents and are looking for a detail for a story. A Coast Guard source tells you he remembered an accident that caused thousands of dollars in damage after the occupants downed more than a dozen small tubs of beer (an average one of these containers holds about 6 bottles of beer) at a bar before hitting the water some time in the last decade.  You try to find it in the data. How many of these tubs did they pay for?
 #17 buckets of beer, probably a better way to do it since I read many narratives
 select a.RedactedNarrative, a.TotalDamage, a.AccidentCause1, a.AccidentCause2, a.AccidentCause3 
 From bard.accidents a Join bard.deaths d on a.bardid = d.bardid
-Where a.AlcoholInvolved = "Yes"
+Where (a.AlcoholInvolved = "Yes"
 or a.AccidentCause1 like "%Alcohol%"
 or a.AccidentCause2 like "%Alcohol%"
-or a.AccidentCause3 like "%Alcohol%"
+or a.AccidentCause3 like "%Alcohol%")
 Group by a.RedactedNarrative, a.TotalDamage, a.AccidentCause1, a.AccidentCause2, a.AccidentCause3 
 Order by a.TotalDamage desc;
 
 select * from bard.accidents
-where RedactedNarrative IS NOT NULL
+where RedactedNarrative like "%bar%"
 and TotalDamage > 0
 and AlcoholInvolved = "yes"
 order by TotalDamage desc;
 
 # 5: How many accidents were there where at least one person who wasn't the operator of a boat (an occupant) died?
-#67? Slightly unsure about my or statement
-select a.bardid, a.Numberdeaths, d.DeceasedRole, d.DeceasedRoleOther
+#76 deaths, 67 accidents
+#Check if the things you're grouping on are unique but selecting that column and running a count(*)
+select a.bardid
 From bard.accidents a Join bard.deaths d on a.bardid = d.bardid
 Where (d.DeceasedRole <> "Operator" or d.DeceasedRoleOther <> "Operator")
-group by a.bardid, a.Numberdeaths, d.DeceasedRole, d.DeceasedRoleOther;
+group by a.bardid;
+
 
 select * from bard.deaths;
 select * from bard.accidents;
