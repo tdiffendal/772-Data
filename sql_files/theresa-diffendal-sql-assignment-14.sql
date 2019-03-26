@@ -45,9 +45,11 @@ having number_contributions > 400
 order by contribution_date desc;
 
 #6 There are a lot of null values for employer for individual contributions to both candidates.  Do your best to figure out why.  Are there any patterns with certain candidates, certain contribution types? Which of the two candidates is doing a worse job collecting this kind of information?
-select * from exercises.md_gov_race
+select receiving_committee, contribution_type, count(*) 
+from exercises.md_gov_race
 where employer_name is null
-and contributor_type = "Individual";
+and contributor_type = "Individual"
+group by receiving_committee, contribution_type;
 
 #7-9 Think of three questions to ask of this data. Write the question, query and answer below.
 select filing_period, receiving_committee, count(*), avg(contribution_amount), sum(contribution_amount)
