@@ -166,6 +166,9 @@ group by d.cand_name
 order by sum(t.amount) desc;
 
 #How many donors gave a combined total of $20,000 or more to all of the Republican presidential candidates? Write a single query that returns a table with only those donors and no other donors.
+select t.name
+from exercises.md_contrib t join exercises.md_cand d on t.cmte_id=d.cmte_id
+where d.party = "REP";
 
 #Contributions for a negative amount represent refunds or "redesignations" of the contribution to another contributor (i.e. re-assigning the contribution to a spouse, so you can give more money). How many such contributions are in the data for Ted Cruz?
 
