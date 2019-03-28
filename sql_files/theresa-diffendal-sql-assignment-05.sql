@@ -1,6 +1,6 @@
 #Theresa Diffendal sql lab 05
 # the role of alcohol in boating accidents
-# use: SELECT	FROM		ORDER BY		LIKE with a wildcard	GROUP BY		AS	
+# use: SELECT	FROM		ORDER BY		LIKE with a wildcard	GROUP BY		AS
 #COUNT, AVERAGE, SUM, MIN and MAX	JOIN		HAVING 		WITH ROLLUP
 #from the data available, specifically the large amount of null values, I don't know if I can draw any strong conclusions about alcohol use in accidents.
 
@@ -54,7 +54,7 @@ group by operatorusingalcohol;
 
 #alcohol has a greater average damage - 12,936 - compared to N (7314.7) and null (9213.8). But despite having the greatest average damage, incidents involving an operator using alcohol had the least total/sum damage. Greatest max damage goes to a null scenario, racking up 2,500,000
 select operatorusingalcohol, avg(damagetovessel), min(damagetovessel), max(damagetovessel), sum(damagetovessel), count(*)
-from bard.vessels
+select * from bard.vessels;
 group by operatorusingalcohol;
 
 #open motorboat and cabin motorboats were most used when alcohol involved (44 and 40)
@@ -108,14 +108,14 @@ order by count(*) desc;
 #only one incident, an adult
 select d.year, if(d.deceasedage < 13, "child", if(d.deceasedage <= 19, "teen", "adult")) as age, count(*)
 From bard.deaths d join bard.vessels v on d.bardid = v.bardid
-where v.operatorusingalcohol  = "Y" 
+where v.operatorusingalcohol  = "Y"
 and v.vesseltype = "personal watercraft"
 group by d.year, age;
 
 #29 incidents, still all adults, with a large gap between 2005 and 2014
 select d.year, if(d.deceasedage < 13, "child", if(d.deceasedage <= 19, "teen", "adult")) as age, count(*)
 From bard.deaths d join bard.vessels v on d.bardid = v.bardid
-where v.operatorusingalcohol  = "Y" 
+where v.operatorusingalcohol  = "Y"
 group by d.year, age;
 
 #2011 and 2015 reached or surpassed 20 deaths, while the other years range from 10-16 deaths
