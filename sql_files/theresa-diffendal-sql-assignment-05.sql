@@ -54,7 +54,7 @@ group by operatorusingalcohol;
 
 #alcohol has a greater average damage - 12,936 - compared to N (7314.7) and null (9213.8). But despite having the greatest average damage, incidents involving an operator using alcohol had the least total/sum damage. Greatest max damage goes to a null scenario, racking up 2,500,000
 select operatorusingalcohol, avg(damagetovessel), min(damagetovessel), max(damagetovessel), sum(damagetovessel), count(*)
-from bard.vessels
+select * from bard.vessels;
 group by operatorusingalcohol;
 
 #open motorboat and cabin motorboats were most used when alcohol involved (44 and 40)
