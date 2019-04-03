@@ -68,3 +68,19 @@ group by typ_int;
 select if(rel_road = 1, "on road", if(rel_road = 2 or rel_road = 3 or rel_road = 4, "near road", rel_road)) as relation, count(*)
 from fars.accident
 group by relation;
+
+/* https://www.nbcmiami.com/news/local/Florida-Is-The-Deadliest-State-for-Pedestrians-Study-Says-504758081.html
+This story detailed a study which made use of the FARS database to calculate a "pedestrian danger index" and concluded Florida is the least safe state for pedestrians. Possibly used something like below, might have filtered pbtype.pedctype*/
+select state, count(*)
+from fars.accident 
+where peds > 0
+group by state
+order by state asc;
+
+/*https://www.thenewspaper.com/news/52/5250.asp
+article that used FARS to prove an NHTSA document wrong about speeding in fatal collisions, as NHTSA included speeding as when speed.rel > 0, as opposed to just exceeded speed limit (speed.rel = 3). For comparison, just "yes" had 593 incidents compared to 363 where speeding was listed as the cause. That significantly shifts the percentage.
+Yes, exceeded speed limit had 363 incidents compared to 4622 where speeding did not play a role, which, as the article says, is only about 8 percent, not the 24 percent figure NHTSA wrote. */
+
+select speedrel, count(*)
+from fars.vehicle
+group by speedrel;
