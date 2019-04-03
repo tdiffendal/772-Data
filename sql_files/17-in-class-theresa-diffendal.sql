@@ -49,11 +49,22 @@ from fars.pbtype pb join fars.nmcrash nm on pb.st_case=nm.st_case
 where pb.pbcwalk = "1"
 group by nm.mtm_crsh;
 
-#is not visible skew racially? doesn't seem to
+#does not visible skew racially? doesn't seem to
 select p.race, count(*)
 from fars.person p join fars.nmcrash nm on p.st_case=nm.st_case
 where nm.mtm_crsh = 19
 and (p.per_typ != 1 or p.per_typ != 2 or p.per_typ != 3 or p.per_typ != 4 or p.per_typ != 9)
 group by p.race;
 
-#are people with prior convictions more likely to be involved in accidents?
+#in what type of intersection did crashes happen most frequently?
+#of the intersections, the most crashes were cateloged in four-way intersections. I wonder if this is impacted by the frequency of each type of intersection or is mainly due to the design.
+select typ_int, count(*)
+from fars.accident
+group by typ_int;
+
+#was a crash more likely to happen on the road, the side of/close to the road or elsewhere?
+#on road had greatest amount, more than double the second highest "near road"
+#great to see that not reported (8) and unknown (99) are low, hopefully making this reliable data from which to draw a conclusion
+select if(rel_road = 1, "on road", if(rel_road = 2 or rel_road = 3 or rel_road = 4, "near road", rel_road)) as relation, count(*)
+from fars.accident
+group by relation;
