@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1555595365942.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "FE54983F",
+    "lastKnownWriteTime" : 1552151551,
+    "last_content_update" : 1552151551,
+    "path" : "~/Desktop/data-science-in-tidyverse-master/A_transforming_data/02-B-TransformData_StringsJoins.R",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "75,18",
+        "scrollLine" : "72"
+    },
+    "relative_order" : 10,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

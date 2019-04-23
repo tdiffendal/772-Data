@@ -1,0 +1,29 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1555593296230.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "BC683276",
+    "lastKnownWriteTime" : 4573995008,
+    "last_content_update" : 1555593296230,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "CD25900C",
+        "caption" : "md_election",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=md_election&cache_key=CD25900C",
+        "displayedObservations" : 55327,
+        "environment" : "",
+        "object" : "md_election",
+        "preview" : 0,
+        "totalObservations" : 55327,
+        "variables" : 13
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

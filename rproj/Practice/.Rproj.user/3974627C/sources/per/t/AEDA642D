@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1555604504753.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2934526177",
+    "id" : "AEDA642D",
+    "lastKnownWriteTime" : 1555610183,
+    "last_content_update" : 1555610183658,
+    "path" : "~/Documents/GitHub/rproj/772data.rproj/Practice/script.r",
+    "project_path" : "script.r",
+    "properties" : {
+        "cursorPosition" : "372,29",
+        "scrollLine" : "367"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

@@ -1,0 +1,29 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1555604850788.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "2DA47DDD",
+    "lastKnownWriteTime" : 172567491026013,
+    "last_content_update" : 1555604850788,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "C427F01F",
+        "caption" : "md_election_states",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=md_election_states&cache_key=C427F01F",
+        "displayedObservations" : "57",
+        "environment" : "",
+        "object" : "md_election_states",
+        "preview" : "0",
+        "totalObservations" : "57",
+        "variables" : "2"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

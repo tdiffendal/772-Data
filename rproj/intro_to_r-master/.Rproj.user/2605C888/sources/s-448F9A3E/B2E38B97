@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1555368305987.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "B2E38B97",
+    "lastKnownWriteTime" : 1555602818,
+    "last_content_update" : 1555602818300,
+    "path" : "~/Desktop/intro_to_r/script.r",
+    "project_path" : "script.r",
+    "properties" : {
+        "cursorPosition" : "665,19",
+        "scrollLine" : "657",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

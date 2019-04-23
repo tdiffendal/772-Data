@@ -1,0 +1,29 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1555606910843.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "DDEDFB3E",
+    "lastKnownWriteTime" : 6,
+    "last_content_update" : 1555606910843,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "1E221104",
+        "caption" : "md_election_working",
+        "contentUrl" : "grid_resource/gridviewer.html?env=_rs_no_env&obj=md_election_working&cache_key=1E221104",
+        "displayedObservations" : "1",
+        "environment" : "_rs_no_env",
+        "object" : "md_election_working",
+        "preview" : "0",
+        "totalObservations" : "1",
+        "variables" : "2"
+    },
+    "relative_order" : 11,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}
