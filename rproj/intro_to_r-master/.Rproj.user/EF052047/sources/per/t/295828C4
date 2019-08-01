@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1563474021034.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2047502233",
+    "id" : "295828C4",
+    "lastKnownWriteTime" : 1563473967,
+    "last_content_update" : 1563473967,
+    "path" : "~/Documents/GitHub/772-Data/rproj/intro_to_r-master/script.r",
+    "project_path" : "script.r",
+    "properties" : {
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

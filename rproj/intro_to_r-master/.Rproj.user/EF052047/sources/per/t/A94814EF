@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1563474000835.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2492232015",
+    "id" : "A94814EF",
+    "lastKnownWriteTime" : 1563473967,
+    "last_content_update" : 1563473967,
+    "path" : "~/Documents/GitHub/772-Data/rproj/intro_to_r-master/script-next.r",
+    "project_path" : "script-next.r",
+    "properties" : {
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
